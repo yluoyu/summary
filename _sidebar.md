@@ -18,5 +18,5 @@
     - [日志相关](technology/other/log.md)
     - [分布式相关](technology/other/Distributed.md)
     - [正则表达式](technology/other/regular.md)
-    - [IO&BIO&AIO区别](technology/other/XIODifference.md)
     - [IO模型](technology/other/IOModel.md)
+    - [IO&BIO&AIO区别](technology/other/XIODifference.md)
