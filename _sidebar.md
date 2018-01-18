@@ -1,6 +1,11 @@
 - Getting Started
   - [简介](/)
-
+- 工作积累
+  - [Liunx命令](LinuxComond.md)
+  - 常用工具
+    - [Homebrew](software/Homebrew.md)
+    - [NPM](software/npm.md)
+  - [重要概念](concept.md)
 - 技术整理
   - 数据结构与算法
     - [二叉树](technology/algorithm/Binary.md)
