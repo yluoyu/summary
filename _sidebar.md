@@ -2,7 +2,7 @@
   - [简介](/)
   - 技术整理
     - [二叉树](技术整理/二叉树.md)
-    - [VS Code](vscode-installation.md)
+    - [binary](binary.md)
 
 - Writing Markdown
   - [Markdown Basics](markdown-basics.md)
