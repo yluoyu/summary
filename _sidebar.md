@@ -1,6 +1,6 @@
 - Getting Started
   - [简介](/)
-  - [Usages](usages.md)
+  - [Usages](README.md)
   - 技术整理
     - [Java](welcome.md)
     - [VS Code](vscode-installation.md)
