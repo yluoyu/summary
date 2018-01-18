@@ -5,6 +5,18 @@
   - 数据结构与算法
     - [二叉树](technology/algorithm/Binary.md)
   - 数据库
+    - [数据库相关](technology/database/database.md)
   - JAVA相关
     - [类加载机制](technology/java/ClassLoader.md)
     - [JVM相关](technology/java/JVM.md)
+    - [并发编程](technology/java/ConcurrentCode.md)
+    - [IO操作](technology/java/IO.md)
+    - [NIO操作](technology/java/NIO.md)
+    - [IO中的设计模式](technology/java/IODesignPattern.md)
+    - [线程相关](technology/java/thread.md)
+  - 其他
+    - [日志相关](technology/other/log.md)
+    - [分布式相关](technology/other/Distributed.md)
+    - [正则表达式](technology/other/regular.md)
+    - [IO&BIO&AIO区别](technology/other/XIODifference.md)
+    - [IO模型](technology/other/IOModel.md)
