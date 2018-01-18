@@ -1,15 +1,6 @@
 - Getting Started
   - [简介](/)
-  - 技术整理
-    - [二叉树](technology/二叉树.md)
-    - [binary](二叉树.md)
 
-- Writing Markdown
-  - [Markdown Basics](markdown-basics.md)
-  - [Math Typesetting](math.md)
-  - [Diagrams](diagrams.md)
-  - [TOC](toc.md)
-  - [File Imports](file-imports.md)
-  - [Code Chunk](code-chunk.md)
-  - [Presentation](presentation.md)
-  - [Pandoc](pandoc.md)
+- 技术整理
+  - 数据结构与算法
+    - [二叉树](technology/二叉树.md)
