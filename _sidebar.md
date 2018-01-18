@@ -2,7 +2,7 @@
   - [简介](/)
   - 技术整理
     - [二叉树](技术整理/二叉树.md)
-    - [binary](binary.md)
+    - [binary](二叉树.md)
 
 - Writing Markdown
   - [Markdown Basics](markdown-basics.md)
