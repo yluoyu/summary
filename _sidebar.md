@@ -1,8 +1,7 @@
 - Getting Started
   - [简介](/)
   - 技术整理
-    - 算法与数据结构
-      - [二叉树](技术整理/二叉树.md)
+    - [二叉树](技术整理/二叉树.md)
     - [VS Code](vscode-installation.md)
 
 - Writing Markdown
