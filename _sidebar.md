@@ -1,7 +1,7 @@
 - Getting Started
   - [简介](/)
   - 技术整理
-    - [二叉树](技术整理/二叉树.md)
+    - [二叉树](technology/二叉树.md)
     - [binary](二叉树.md)
 
 - Writing Markdown
