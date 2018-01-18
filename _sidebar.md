@@ -3,4 +3,4 @@
 
 - 技术整理
   - 数据结构与算法
-    - [二叉树](technology/二叉树.md)
+    - [二叉树](technology/Binary.md)
