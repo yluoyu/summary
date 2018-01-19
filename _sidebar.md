@@ -1,27 +1,27 @@
 - Getting Started
   - [简介](/)
 - 工作积累
-  - [Liunx命令](LinuxComond.md)
+  - [Liunx命令](Liunx命令.md)
   - 常用工具
-    - [Homebrew](software/Homebrew.md)
-    - [NPM](software/npm.md)
-  - [重要概念](concept.md)
+    - [Homebrew](常用工具/Homebrew.md)
+    - [NPM](常用工具/npm.md)
+  - [重要概念](重要概念.md)
 - 技术整理
   - 数据结构与算法
-    - [二叉树](technology/algorithm/Binary.md)
+    - [二叉树](技术整理/数据结构与算法/二叉树.md)
   - 数据库
-    - [数据库相关](technology/database/database.md)
+    - [数据库相关](技术整理/数据库/数据库相关.md)
   - JAVA相关
-    - [类加载机制](technology/java/ClassLoader.md)
-    - [JVM相关](technology/java/JVM.md)
-    - [并发编程](technology/java/ConcurrentCode.md)
-    - [IO操作](technology/java/IO.md)
-    - [NIO操作](technology/java/NIO.md)
-    - [IO中的设计模式](technology/java/IODesignPattern.md)
-    - [线程相关](technology/java/thread.md)
+    - [类加载机制](技术整理/java/类加载机制.md)
+    - [JVM相关](技术整理/java/JVM相关.md)
+    - [并发编程](技术整理/java/并发编程.md)
+    - [IO操作](技术整理/java/IO操作.md)
+    - [NIO操作](技术整理/java/NIO.md)
+    - [IO中的设计模式](技术整理/java/IO中的设计模式.md)
+    - [线程相关](技术整理/java/thread.md)
   - 其他
-    - [日志相关](technology/other/log.md)
-    - [分布式相关](technology/other/Distributed.md)
-    - [正则表达式](technology/other/regular.md)
-    - [IO模型](technology/other/IOModel.md)
-    - [IO&BIO&AIO区别](technology/other/XIODifference.md)
+    - [日志相关](技术整理/other/log.md)
+    - [分布式相关](技术整理/other/Distributed.md)
+    - [正则表达式](技术整理/other/regular.md)
+    - [IO模型](技术整理/other/IOModel.md)
+    - [IO&BIO&AIO区别](技术整理/other/XIODifference.md)
