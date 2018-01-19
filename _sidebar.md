@@ -1,7 +1,7 @@
 - Getting Started
   - [简介](/)
 - 工作积累
-  - [Liunx命令](Liunx命令.md)
+  - [Liunx命令](Linux命令.md)
   - 常用工具
     - [Homebrew](常用工具/Homebrew.md)
     - [NPM](常用工具/npm.md)
