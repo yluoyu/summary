@@ -8,9 +8,7 @@
 
 **生成环境SSH转发**
 本地8086 通过122服务器 转发到 206:8080
-```
-ssh -f root@192.168.1.122 -L 8086:172.16.0.206:8080 -N
-```
+`ssh -f root@192.168.1.122 -L 8086:172.16.0.206:8080 -N`
 -L 本地端口转发
 -R 远程端口转发
 
@@ -23,9 +21,8 @@ cat /etc/redhat-release
 getconf LONG_BIT
 
 **查看磁盘容量**
-```
-df -hl
-```
+`df -hl`
+
 **Apidoc 生成文档**
 `apidoc -i ./ -o ./`
 
@@ -50,7 +47,7 @@ windows下  ping 和 nslookup 不一致，因为dns 没刷新   ipconfig /flushd
 linux   /etc/init.d/networking restart
 
 **AB并发测试**
-ab -n 1  -c 1 -p 'post.txt' -T 'application/json' 'http://127.0.0.1:8080/loan-app/lend/videoSubmitAudit'
+`ab -n 1  -c 1 -p 'post.txt' -T 'application/json' 'http://127.0.0.1:8080/loan-app/lend/videoSubmitAudit'`
 
 **puppeteer安装**
 设置
