@@ -22,18 +22,18 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 
 #### Homebrew 命令
-brew **info** mysql 主要看具体的信息，比如目前的版本，依赖，安装后注意事项等
-brew **search** mysql #搜索
-brew **update**  # 更新 Homebrew 的信息
-brew **outdated** # 看一下哪些软件可以升级
-brew **upgrade** <xxx> # 如果不是所有的都要升级，那就这样升级指定的
-brew **upgrade**;
-brew **cleanup** #清理不需要的版本极其安装包缓存
-brew **cleanup** git #清理单个已安装软件包的历史版本
-brew **home** git #访问软件包官方站
-brew **list** #显示已经安装的所有软件包
-brew **uninstall** git #卸载软件包
-brew **install** git #安装软件包(这里是示例安装的Git版本控制)
+- brew **info** mysql 主要看具体的信息，比如目前的版本，依赖，安装后注意事项等
+- brew **search** mysql #搜索
+- brew **update**  # 更新 Homebrew 的信息
+- brew **outdated** # 看一下哪些软件可以升级
+- brew **upgrade** <xxx> # 如果不是所有的都要升级，那就这样升级指定的
+- brew **upgrade**;
+- brew **cleanup** #清理不需要的版本极其安装包缓存
+- brew **cleanup** git #清理单个已安装软件包的历史版本
+- brew **home** git #访问软件包官方站
+- brew **list** #显示已经安装的所有软件包
+- brew **uninstall** git #卸载软件包
+- brew **install** git #安装软件包(这里是示例安装的Git版本控制)
 
 #### Homebrew的扩充
 
