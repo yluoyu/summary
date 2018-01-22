@@ -22,6 +22,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 
 #### Homebrew 命令
+
 - brew **info** mysql 主要看具体的信息，比如目前的版本，依赖，安装后注意事项等
 - brew **search** mysql #搜索
 - brew **update**  # 更新 Homebrew 的信息
