@@ -16,9 +16,9 @@
 `zkCli -server 192.168.5.44:2181`
 
 **查看系统版本信息**
-cat /etc/redhat-release
+`cat /etc/redhat-release`
 **查看系统位数**
-getconf LONG_BIT
+`getconf LONG_BIT`
 
 **查看磁盘容量**
 `df -hl`
@@ -28,9 +28,10 @@ getconf LONG_BIT
 
 查看端口占用情况
 `lsof -i:8080`
+列出打开文件（lists open files）”。切记，在Unix中一切（包括网络套接口）都是文件
 
 **shadowsocks服务启动命令**
-ssserver -c /etc/shadowsocks.json -d start
+`ssserver -c /etc/shadowsocks.json -d start`
 
 ssh developer@192.168.3.163      4iD5wRki
 ssh test@192.168.3.163      1234
@@ -42,7 +43,6 @@ dig openapi.stb.nonobank.com   查询dns解析记录    修改zone 文件后请�
 
 service bind9 restart  重启bind9服务
 
-
 windows下  ping 和 nslookup 不一致，因为dns 没刷新   ipconfig /flushdns 刷新
 linux   /etc/init.d/networking restart
 
@@ -51,4 +51,4 @@ linux   /etc/init.d/networking restart
 
 **puppeteer安装**
 设置
-npm config set PUPPETEER_DOWNLOAD_HOST = https://npm.taobao.org/mirrors
+`npm config set PUPPETEER_DOWNLOAD_HOST = https://npm.taobao.org/mirrors`

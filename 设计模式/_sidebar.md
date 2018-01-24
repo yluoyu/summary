@@ -1,0 +1,11 @@
+- Getting Started
+  - [简介](/)
+- 设计原则
+  - [Liunx命令](Linux命令.md)
+  - 常用工具
+    - [Homebrew](常用工具/Homebrew.md)
+    - [NPM](常用工具/npm.md)
+  - [重要概念](重要概念.md)
+- 设计模式
+  - 构建型模式
+    - [工厂方法模式](设计模式/构建型模式/工厂方法模式.md)
