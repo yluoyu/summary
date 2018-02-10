@@ -38,6 +38,14 @@ FactoryBean的几个方法：
 - getObjectType()方法获取接口返回的实例的class
 - isSingleton()方法获取该Bean是否为一个单例的Bean
 
+**BeanFactory与FactoryBean的区别**
+- BeanFactory，以Factory结尾，表示它是一个工厂类(接口)，用于管理Bean的一个工厂。在Spring中，BeanFactory是IOC容器的核心接口，它的职责包括：实例化、定位、配置应用程序中的对象及建立这些对象间的依赖
+- FactoryBean 以Bean结尾，表示它是一个Bean，不同于普通Bean的是：它是实现了FactoryBean<T>接口的Bean，根据该Bean的ID从BeanFactory中获取的实际上是FactoryBean的getObject()返回的对象，而不是FactoryBean本身，如果要获取FactoryBean对象，请在id前面加一个&符号来获取
+
+FactoryBean 通常是用来创建比较复杂的bean，一般的bean 直接用xml配置即可，但如果一个bean的创建过程中涉及到很多其他的bean 和复杂的逻辑，用xml配置比较困难，这时可以考虑用FactoryBean
+
+通过使用FactoryBean，我们可以得到不同类型的对象实例。这也就是我们在AOP中通过设置calss为ProxyFactoryBean可以返回不同类型的业务对象的原理
+
 **四、BeanPostProcessor**
 之前的InitializingBean、DisposableBean、FactoryBean包括init-method和destory-method，针对的都是某个Bean控制其初始化的操作，而似乎没有一种办法可以针对每个Bean的生成前后做一些逻辑操作，PostProcessor则帮助我们做到了这一点
 网上有一张图画了Bean生命周期的过程：
@@ -76,5 +84,11 @@ InstantiationAwareBeanPostProcessor作用的是Bean实例化前后，即：
 不过通常来讲，我们不会直接实现InstantiationAwareBeanPostProcessor接口，而是会采用继承InstantiationAwareBeanPostProcessorAdapter这个抽象类的方式来使用。
 
 ### 应用实例
+
+**FactoryBean**
+- 很多开源项目在集成Spring 时都使用到FactoryBean，比如 MyBatis3 提供 mybatis-spring项目中的 org.mybatis.spring.SqlSessionFactoryBean
+- 阿里开源的分布式服务框架 Dubbo 中的Consumer 也使用到了FactoryBean
+
+
 
 #### 配置中心
