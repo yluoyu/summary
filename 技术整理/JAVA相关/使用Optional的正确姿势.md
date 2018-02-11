@@ -1,5 +1,32 @@
 本文转自[隔夜黄莺](https://unmi.cc/proper-ways-of-using-java8-optional/)
 
+样例：
+```java
+public static String getName(User u) {
+    if (u == null)
+        return "Unknown";
+    return u.name;
+}
+```
+
+千万不要改写成这副样子:
+```java
+public static String getName(User u) {
+    Optional<User> user = Optional.ofNullable(u);
+    if (!user.isPresent())
+        return "Unknown";
+    return user.get().name;
+}
+```
+应该是这样
+```java
+public static String getName(User u) {
+    return Optional.ofNullable(u)
+                    .map(user->user.name)
+                    .orElse("Unknown");
+}
+```
+
 
 我们知道 Java 8 增加了一些很有用的 API, 其中一个就是 Optional. 如果对它不稍假探索, 只是轻描淡写的认为它可以优雅的解决 NullPointException 的问题, 于是代码就开始这么写了
 
@@ -39,13 +66,13 @@ if (user != null) {
 把 Optional 类型用作属性或是方法参数在 IntelliJ IDEA 中更是强力不推荐的
 
 所以 Optional 中我们真正可依赖的应该是除了`isPresent()`和`get()`的其他方法：
-- public<U> Optional<U> map(Function<? super T, ? extends U> mapper)
+- public\<U> Optional\<U> map(Function<? super T, ? extends U> mapper)
 - public T orElse(T other)
 - public T orElseGet(Supplier<? extends T> other)
 - public void ifPresent(Consumer<? super T> consumer)
-- public Optional<T> filter(Predicate<? super T> predicate)
-- public<U> Optional<U> flatMap(Function<? super T, Optional<U>> mapper)
-- public <X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier) throws X
+- public Optional\<T> filter(Predicate<? super T> predicate)
+- public\<U> Optional\<U> flatMap(Function<? super T, Optional\<U>> mapper)
+- public \<X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier) throws X
 
 我略有自信的按照它们大概使用频度对上面的方法排了一下序.
 先又不得不提一下 Optional 的三种构造方式:
