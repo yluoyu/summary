@@ -9,6 +9,7 @@
     - [Homebrew](常用工具/Homebrew.md)
     - [NPM](常用工具/npm.md)
     - [Atom](常用工具/atom.md)
+    - [其他](常用工具/其他.md)
   - [重要概念](重要概念.md)
 - 技术整理
   - 数据结构与算法
