@@ -3,9 +3,12 @@
 - 工作积累
   - [Liunx命令](Linux命令.md)
   - 常用工具
-    - [Git](常用工具/Git.md)
+    - [Git](常用工具/git.md)
+    - [Gradle](常用工具/gradle.md)
+    - [Maven](常用工具/maven.md)
     - [Homebrew](常用工具/Homebrew.md)
     - [NPM](常用工具/npm.md)
+    - [Atom](常用工具/atom.md)
   - [重要概念](重要概念.md)
 - 技术整理
   - 数据结构与算法
