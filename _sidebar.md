@@ -3,6 +3,7 @@
 - 工作积累
   - [Liunx命令](Linux命令.md)
   - 常用工具
+    - [Git](常用工具/Git.md)
     - [Homebrew](常用工具/Homebrew.md)
     - [NPM](常用工具/npm.md)
   - [重要概念](重要概念.md)
