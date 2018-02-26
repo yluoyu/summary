@@ -106,3 +106,9 @@ method2.invoke(e);
 - 通过System.currentTimeMillis（）来获取一个当前时间毫秒数的long型数字
 - 通过Math.random（）返回一个0到1之间的double值
 - 通过Random类来产生一个随机数，这个是专业的Random工具类，功能强大
+
+#### AccessController.doPrivileged
+是一个在AccessController类中的静态方法，允许在一个类实例中的代码通知这个AccessController：它的代码主体是享受”privileged(特权的)”，它单独负责对它的可得的资源的访问请求，而不管这个请求是由什么代码所引发的
+这就是说，一个调用者在调用doPrivileged方法时，可被标识为 “特权”。在做访问控制决策时，如果checkPermission方法遇到一个通过doPrivileged调用而被表示为 “特权”的调用者，并且没有上下文自变量，checkPermission方法则将终止检查。如果那个调用者的域具有特定的许可，则不做进一步检查，checkPermission安静地返回，表示那个访问请求是被允许的；如果那个域没有特定的许可，则象通常一样，一个异常被抛出
+
+#### 类实例话的方式
