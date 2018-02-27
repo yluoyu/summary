@@ -1,10 +1,13 @@
-- 工具书
+- 常用工具
   - [简介](/常用工具/)
-- Code利器
-  - [Git](常用工具/git.md)
-  - [Gradle](常用工具/gradle.md)
-  - [Maven](常用工具/maven.md)
+- 编辑器
   - [ATom](常用工具/atom.md)
   - [Idea](常用工具/idea.md)
+- 版本管理
+  - [Git](常用工具/git.md)
+- 构建工具
+  - [Gradle](常用工具/gradle.md)
+  - [Maven](常用工具/maven.md)
+- 管理工具
   - [Homebrew](常用工具/homebrew.md)
   - [NPM](常用工具/npm.md)
