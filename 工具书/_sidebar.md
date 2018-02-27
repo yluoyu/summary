@@ -1,6 +1,7 @@
 - Getting Started
   - [简介](/工具书/)
 - 工具书
+  - [杂货店](工具书/杂货店.md)
   - [Git](工具书/git.md)
   - [Gradle](工具书/gradle.md)
   - [Maven](工具书/maven.md)
