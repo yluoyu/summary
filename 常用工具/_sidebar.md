@@ -5,5 +5,6 @@
   - [Gradle](常用工具/gradle.md)
   - [Maven](常用工具/maven.md)
   - [ATom](常用工具/atom.md)
+  - [Idea](常用工具/idea.md)
   - [Homebrew](常用工具/homebrew.md)
   - [NPM](常用工具/npm.md)
