@@ -17,6 +17,7 @@
 - JAVA相关相关
   - [使用Optional的正确姿势](技术整理/JAVA相关/使用Optional的正确姿势.md)
   - [Java8流处理](技术整理/JAVA相关/Java8流处理.md)
+  - [HashMap内部实现](技术整理/JAVA相关/HashMap内部实现.md)
   - [Lamdba表达式](技术整理/JAVA相关/Lamdba表达式.md)
   - [类加载机制](技术整理/JAVA相关/类加载机制.md)
   - [类实例化](技术整理/JAVA相关/类实例化.md)
