@@ -1,7 +1,7 @@
 
 **激活**：
 1. 添加`0.0.0.0 account.jetbrains.com`到hosts
-2. 通过http://idea.lanyus.com/获取CODE
+2. 通过[http://idea.lanyus.com/](http://idea.lanyus.com/)获取CODE
 
 常用插件：
 - MyBatisCodeHelper-1.4.5
@@ -10,8 +10,9 @@
 
 
 #### 快捷键
-- Command + Shift + ↑ 上下行交换
-- Option + Shift + ↑
+- <code>Comand + `</code> 不同窗口切换
+- `Command + Shift + ↑` 上下行交换
+- `Option + Shift + ↑`
 
 **Mac键盘符号和修饰键说明**
 - ⌘ Command
