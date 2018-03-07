@@ -17,6 +17,7 @@
     - [Mysql加锁分析](技术整理/数据库/Mysql加锁分析.md)
 - JAVA相关相关
   - [使用Optional的正确姿势](技术整理/JAVA相关/使用Optional的正确姿势.md)
+  - [队列](技术整理/JAVA相关/队列.md)
   - [Java8流处理](技术整理/JAVA相关/Java8流处理.md)
   - [HashMap内部实现](技术整理/JAVA相关/HashMap内部实现.md)
   - [Lamdba表达式](技术整理/JAVA相关/Lamdba表达式.md)
@@ -55,3 +56,4 @@
     - [IO模型](技术整理/其他/IO模型.md)
     - [不同IO区别](技术整理/其他/不同IO区别.md)
     - [零拷贝](技术整理/其他/零拷贝.md)
+    - [PHP笔记](技术整理/其他/PHP笔记.md)
