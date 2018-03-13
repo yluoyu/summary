@@ -1,15 +1,7 @@
-
-
-#### 一、遍历中修改List问题
-
-#### 二、java8 forEach 在Map和List中的使用
-```java
-for (Map.Entry<String,Integer> entry : items.entrySet()){
-    System.out.println("key:"+entry.getKey()+";value:"+entry.getValue());
-}
-
-items.forEach((k,v)->System.out.println("key : " + k + "; value : " + v));
-```
+参考学习：
+[Java面试题全集（上）](http://www.importnew.com/22083.html)
+[Java面试题全集（下）](http://www.importnew.com/22087.html)
+[最近5年133个Java面试问题列表](http://www.importnew.com/17232.html)
 
 #### 三、Java8 时间/日期API
 **LocalDate**
@@ -195,3 +187,43 @@ public ScheduledFuture<?> scheduleWithFixedDelay(Runnable command,long initialDe
 6. 局部内部类只能访问final变量
 ```
 java中绝大多数情况下，类的访问修饰符只有public和默认这两种，但也有例外。静态内部类和成员内部类还可以有protected和private两种
+
+
+#### HashMap
+HashMap中key为null的元素 放在table[0]中。
+- HashMap的源码，实现原理，JDK8中对HashMap做了怎样的优化
+  - 红黑树
+- HaspMap扩容是怎样扩容的，为什么都是2的N次幂的大小
+  -扩容的时候 桶链内容的重分配，要么在当前位置，要么在下标为2n+1的位置
+- HashMap，HashTable，ConcurrentHashMap的区别
+  - HashTable不允许有null值的存在
+  - HashMap是非线程安全的，HashTable是线程安全的，内部的方法基本都是synchronized
+- 极高并发下HashTable和ConcurrentHashMap哪个性能更好，为什么，如何实现的
+  - synchronized关键字加锁的原理，其实是对对象加锁，不论你是在方法前加synchronized还是语句块前加，锁住的都是对象整体，但是ConcurrentHashMap的同步机制和这个不同，它不是加synchronized关键字，而是基于lock操作的，这样的目的是保证同步的时候，锁住的不是整个对象。事实上，ConcurrentHashMap可以满足concurrentLevel个线程并发无阻塞的操作集合对象。关于concurrentLevel稍后介绍
+  - ConcurrentHashMap引入了分割(Segment)，上面代码中的最后一行其实就可以理解为把一个大的Map拆分成N个小的HashTable，在put方法中，会根据hash(paramK.hashCode())来决定具体存放进哪个Segment，如果查看Segment的put操作，我们会发现内部使用的同步机制是基于lock操作的，这样就可以对Map的一部分（Segment）进行上锁，这样影响的只是将要放入同一个Segment的元素的put操作，保证同步的时候，锁住的不是整个Map（HashTable就是这么做的），相对于HashTable提高了多线程环境下的性能，因此HashTable已经被淘汰了
+- HashMap在高并发下如果没有处理线程安全会有怎样的安全隐患，具体表现是什么
+  - 高并发的情况下，链有可能形成循环链，这样get时会发生死循环的，由此造成CPU 100%,
+
+#### 动态代理的两种方式，以及区别
+- jdk动态代理 实现InvocationHandler。
+- cglib动态代理
+- 如果目标对象实现了接口，默认情况下会采用JDK的动态代理实现AOP
+- 如果目标对象实现了接口，可以强制使用CGLIB实现AOP
+- 如果目标对象没有实现了接口，必须采用CGLIB库，spring会自动在JDK动态代理和CGLIB之间转换
+- CGLIB是针对类实现代理，主要是对指定的类生成一个子类，覆盖其中的方法.因为是继承，所以该类或方法最好不要声明成final
+
+#### Java序列化的方式
+- 实现Serializable接口
+- 把对象包装成JSON字符串
+- 采用谷歌的ProtoBuf
+
+#### 传值和传引用
+- java中方法参数传递方式是按值传递
+- 如果参数是基本类型，传递的是基本类型的字面量值的拷贝
+- 如果参数是引用类型，传递的是该参量所引用的对象在堆中地址值的拷贝
+
+#### 一个ArrayList在循环过程中删除，会不会出问题
+- Iterator迭代器删除的问题。
+
+#### @transactional注解在什么情况下会失效
+- 同一个类中的没有@transactional注解的方法，通过this调用包含@transactional注解的方法时。因为this调用的是没经过增强的类。
