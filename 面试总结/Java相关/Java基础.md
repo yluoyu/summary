@@ -227,3 +227,169 @@ HashMap中key为null的元素 放在table[0]中。
 
 #### @transactional注解在什么情况下会失效
 - 同一个类中的没有@transactional注解的方法，通过this调用包含@transactional注解的方法时。因为this调用的是没经过增强的类。
+
+#### a = a + b 与 a += b 的区别
++= 隐式的将加操作的结果类型强制转换为持有结果的类型。如果两这个整型相加，如 byte、short 或者 int，首先会将它们提升到 int 类型，然后在执行加法操作。如果加法操作的结果比 a 的最大值要大，则 a+b 会出现编译错误，但是 a += b 没问题，如下：
+byte a = 127;
+byte b = 127;
+b = a + b; // error : cannot convert from int to byte
+b += a; // ok
+（译者注：这个地方应该表述的有误，其实无论 a+b 的值为多少，编译器都会报错，因为 a+b 操作会将 a、b 提升为 int 类型，所以将 int 类型赋值给 byte 就会编译出错）
+
+### 3*0.1 == 0.3 将会返回什么？true 还是 false？
+false，因为有些浮点数不能完全精确的表示出来。
+```
+System.out.println(3*0.1);
+//0.30000000000000004
+```
+#### int 和 Integer 哪个会占用更多的内存？(答案)
+Integer 对象会占用更多的内存。Integer 是一个对象，需要存储对象的元数据。但是 int 是一个原始类型的数据，所以占用的空间更少
+
+#### java中String类为什么要设计成不可变的
+**字符串池**
+字符串池是方法区中的一部分特殊存储。当一个字符串被被创建的时候，首先会去这个字符串池中查找，如果找到，直接返回对该字符串的引用
+下面的代码只会在堆中创建一个字符串
+```
+String string1 = "abcd";
+String string2 = "abcd";
+```
+
+如果字符串可变的话，当两个引用指向指向同一个字符串时，对其中一个做修改就会影响另外一个。（请记住该影响，有助于理解后面的内容）
+
+首先String类是用final关键字修饰，这说明String不可继承。再看下面，String类的主力成员字段value是个char[]数组，而且是用final修饰的。final修饰的字段创建以后就不可改变
+
+因为虽然value是不可变的，也只是value这个引用地址不可变。挡不住Array数组是可变的事实。
+虽然正常时拿不到value元素的，但是可以通过反射取到。
+
+String是不可变，关键是因为SUN公司的工程师，在后面所有String的方法里很小心地没有去动Array里的元素，没有暴露内部成员字段。private final char value[]这一句里，private的私有访问权限的作用都比final大。而且设计师还很小心地反整个String设计成final禁止继承，避免被其他人继承后破坏。所以String是不可变的关键在于底层的实现，而不是一个final。考验的是工程师构造数据类型，封装数据的功力
+
+**缓存Hashcode**
+Java中经常会用到字符串的哈希码（hashcode）。例如，在HashMap中，字符串的不可变能保证其hashcode永远保持一致，这样就可以避免一些不必要的麻烦。这也就意味着每次在使用一个字符串的hashcode的时候不用重新计算一次，这样更加高效
+
+好处：
+安全性：
+String被广泛的使用在其他Java类中充当参数。比如网络连接、打开文件等操作。如果字符串可变，那么类似操作可能导致安全问题。因为某个方法在调用连接操作的时候，他认为会连接到某台机器，但是实际上并没有（其他引用同一String对象的值修改会导致该连接中的字符串内容被修改）。可变的字符串也可能导致反射的安全问题，因为他的参数也是字符串
+```java
+boolean connect(string s){
+    if (!isSecure(s)) {
+throw new SecurityException();
+}
+    //如果s在该操作之前被其他的引用所改变，那么就可能导致问题。
+    causeProblem(s);
+}
+```
+`不可变对象天生就是线程安全的`
+因为不可变对象不能被改变，所以他们可以自由地在多个线程之间共享。不需要任何同步处。
+总之，String被设计成不可变的主要目的是为了安全和高效
+
+```
+//创建字符串"Hello World"， 并赋给引用s
+String s = "Hello World";
+System.out.println("s = " + s); //Hello World
+System.out.println(s.hashCode());
+//获取String类中的value字段
+Field valueFieldOfString = String.class.getDeclaredField("value");
+
+//改变value属性的访问权限
+valueFieldOfString.setAccessible(true);
+
+//获取s对象上的value属性的值
+char[] value = (char[]) valueFieldOfString.get(s);
+
+//改变value所引用的数组中的第5个字符
+value[5] = '_';
+
+System.out.println("s = " + s);  //Hello_World
+System.out.println(s.hashCode());
+
+String s2 = "Hello World";
+System.out.println("s2 = "+s2.hashCode());
+System.out.println(s == s2); // true
+```
+
+#### Serial 与 Parallel GC之间的不同之处
+Serial 与 Parallel 在GC执行的时候都会引起 stop-the-world。它们之间主要不同 serial 收集器是默认的复制收集器，执行 GC 的时候只有一个线程，而 parallel 收集器使用多个 GC 线程来执行
+
+#### Java 中 WeakReference 与 SoftReference的区别
+虽然 WeakReference 与 SoftReference 都有利于提高 GC 和 内存的效率，但是 WeakReference ，一旦失去最后一个强引用，就会被 GC 回收，而软引用虽然不能阻止被回收，但是可以延迟到 JVM 内存不足的时候
+
+#### WeakHashMap 是怎么工作的
+WeakHashMap 的工作与正常的 HashMap 类似，但是使用弱引用作为 key，意思就是当 key 对象没有任何引用时，key/value 将会被回收
+
+#### 你能保证 GC 执行吗
+不能，虽然你可以调用 System.gc() 或者 Runtime.gc()，但是没有办法保证 GC 的执行
+
+#### 怎么获取 Java 程序使用的内存？堆使用的百分比
+可以通过 java.lang.Runtime 类中与内存相关方法来获取剩余的内存，总内存及最大堆内存。通过这些方法你也可以获取到堆使用的百分比及堆内存的剩余空间。`Runtime.freeMemory()` 方法返回剩余空间的字节数，`Runtime.totalMemory()` 方法总内存的字节数，`Runtime.maxMemory()` 返回最大内存的字节数
+
+#### Java 中堆和栈有什么区别
+JVM 中堆和栈属于不同的内存区域，使用目的也不同。栈常用于保存方法帧和局部变量，而对象总是在堆上分配。栈通常都比堆小，也不会在多个线程之间共享，而堆被整个 JVM 的所有线程共享
+
+#### Java 中怎么打印数组
+你可以使用 `Arrays.toString()` 和 `Arrays.deepToString()` 方法来打印数组。由于数组没有实现 toString() 方法，所以如果将数组传递给 System.out.println() 方法，将无法打印出数组的内容，但是 Arrays.toString() 可以打印每个元素
+
+#### Java 中的 HashSet，内部是如何工作的
+HashSet 的内部采用 HashMap来实现。由于 Map 需要 key 和 value，所以所有 key 的都有一个默认 value。类似于 HashMap，HashSet 不允许重复的 key，只允许有一个null key，意思就是 HashSet 中只允许存储一个 null 对象
+
+#### 写一段代码在遍历 ArrayList 时移除一个元素
+该问题的关键在于面试者使用的是 ArrayList 的 remove() 还是 Iterator 的 remove()方法。这有一段示例代码，是使用正确的方式来实现在遍历的过程中移除元素，而不会出现 ConcurrentModificationException 异常的示例代码
+
+#### 我们能自己写一个容器类，然后使用 for-each 循环码
+可以，你可以写一个自己的容器类。如果你想使用 Java 中增强的循环来遍历，你只需要实现 Iterable 接口。如果你实现 Collection 接口，默认就具有该属性
+
+#### ArrayList 和 HashMap 的默认大小是多数
+在 Java 7 中，ArrayList 的默认大小是 10 个元素，HashMap 的默认大小是16个元素（必须是2的幂）
+
+#### 有没有可能两个不相等的对象有有相同的 hashcode
+有可能，两个不相等的对象可能会有相同的 hashcode 值，这就是为什么在 hashmap 中会有冲突。相等 hashcode 值的规定只是说如果两个对象相等，必须有相同的hashcode 值，但是没有关于不相等对象的任何规定
+
+#### Java 中，编写多线程程序的时候你会遵循哪些最佳实践
+- 给线程命名，这样可以帮助调试
+- 最小化同步的范围，而不是将整个方法同步，只对关键部分做同步
+- 如果可以，更偏向于使用 volatile 而不是 synchronized
+- 使用更高层次的并发工具，而不是使用 wait() 和 notify() 来实现线程间通信，如 BlockingQueue，CountDownLatch 及 Semeaphore
+- 优先使用并发集合，而不是对集合进行同步。并发集合提供更好的可扩展性
+- 使用线程池
+
+#### 说出 5 条 IO 的最佳实践
+- 使用有缓冲区的 IO 类，而不要单独读取字节或字符
+- 使用 NIO 和 NIO2
+- 在 finally 块中关闭流，或者使用 try-with-resource 语句
+- 使用内存映射文件获取更快的 IO
+
+#### 基本数据库连接操作
+```
+//加载数据库驱动
+Class.forName("com.mysql.jdbc.Driver");
+
+//获取连接//http://baidu.com
+Connection connection =DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?user=root&password=&char       acterEncoding=utf-8");
+
+//通过连接创建statement
+Statement statement =connection.createStatement();
+//定义sql
+//执行sql语句，得到结果resultset
+ResultSet rs=statement.executeQuery("select * from allshop where shopname='"+name+"'")
+```
+
+#### 接口是什么？为什么要使用接口而不是直接使用具体类
+接口用于定义 API。它定义了类必须得遵循的规则。同时，它提供了一种抽象，因为客户端只使用接口，这样可以有多重实现，如 List 接口，你可以使用可随机访问的 ArrayList，也可以使用方便插入和删除的 LinkedList。接口中不允许写代码，以此来保证抽象，但是 Java 8 中你可以在接口声明静态的默认方法，这种方法是具体的
+
+#### Java 中，抽象类与接口之间有什么不同
+Java 中，抽象类和接口有很多不同之处，但是最重要的一个是 Java 中限制一个类只能继承一个类，但是可以实现多个接口。抽象类可以很好的定义一个家族类的默认行为，而接口能更好的定义类型，有助于后面实现多态机制
+
+#### 除了单例模式，你在生产环境中还用过什么设计模式
+这需要根据你的经验来回答。一般情况下，你可以说依赖注入，工厂模式，装饰模式或者观察者模式，随意选择你使用过的一种即可。不过你要准备回答接下的基于你选择的模式的问题
+
+#### 描述 Java 中的重载和重写
+重载和重写都允许你用相同的名称来实现不同的功能，但是重载是编译时活动，而重写是运行时活动。你可以在同一个类中重载方法，但是只能在子类中重写方法。重写必须要有继承
+
+#### Java 中，Serializable 与 Externalizable 的区别
+Serializable 接口是一个序列化 Java 类的接口，以便于它们可以在网络上传输或者可以将它们的状态保存在磁盘上，是 JVM 内嵌的默认序列化方式，成本高、脆弱而且不安全。Externalizable 允许你控制整个序列化过程，指定特定的二进制格式，增加安全机制
+
+#### 说出 5 个 JDK 1.8 引入的新特性
+- Lambda 表达式，允许像对象一样传递匿名函数
+- Stream API，充分利用现代多核 CPU，可以写出很简洁的代码
+- Date 与 Time API，最终，有一个稳定、简单的日期和时间库可供你使用
+- 扩展方法，现在，接口中可以有静态、默认方法
+- 重复注解，现在你可以将相同的注解在同一类型上使用多次
