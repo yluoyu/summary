@@ -13,7 +13,7 @@ Java堆分析工具(Java Heap Analysis Tool)，用于分析Java堆内存中的�
 **jinfo**
 Java配置信息工具(Java Configuration Information)，用于打印指定Java进程、核心文件或远程调试服务器的配置信息
 
-**jmap**
+**`jmap`**
 jmap: Java内存映射工具(Java Memory Map)，主要用于打印指定Java进程、核心文件或远程调试服务器的共享对象内存映射或堆内存细节
 当服务发生GC问题时，一般会使用jmap工具进行分析，jmap工具很强大，所以有必要了解它的方方面面。
 - `jmap -histo[:live] <pid>`
@@ -26,10 +26,12 @@ jmap: Java内存映射工具(Java Memory Map)，主要用于打印指定Java进�
 **jps**
 JVM进程状态工具(JVM Process Status Tool)，用于显示目标系统上的HotSpot JVM的Java进程信息
 
-**jstack**
+**`jstack`**
 Java堆栈跟踪工具，主要用于打印指定Java进程、核心文件或远程调试服务器的Java线程的堆栈跟踪信息
+- `-l long listings`，会打印出额外的锁信息，在发生死锁时可以用jstack -l pid来观察锁持有情况
+- -m mixed mode，不仅会输出Java堆栈信息，还会输出C/C++堆栈信息（比如Native方法）
 
-**jstat**
+**`jstat`**
 JVM统计监测工具(JVM Statistics Monitoring Tool)，主要用于监测并显示JVM的性能统计信息，包括gc统计信息
 
 **jcmd**

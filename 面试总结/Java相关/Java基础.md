@@ -3,6 +3,12 @@
 [Java面试题全集（下）](http://www.importnew.com/22087.html)
 [最近5年133个Java面试问题列表](http://www.importnew.com/17232.html)
 
+#### ThreadLocal
+[正确理解Thread Local的原理与适用场景](https://www.cnblogs.com/jasongj/p/8079718.html)
+ThreadLoal 变量，它的基本原理是，同一个 ThreadLocal 所包含的对象（对ThreadLocal< String >而言即为 String 类型变量），在不同的 Thread 中有不同的副本（实际是不同的实例，后文会详细阐述）。这里有几点需要注意
+
+ThreadLocal 适用于每个线程需要自己独立的实例且该实例需要在多个方法中被使用，也即变量在线程间隔离而在方法或类间共享的场景
+
 #### 三、Java8 时间/日期API
 **LocalDate**
 ```java
