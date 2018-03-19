@@ -3,8 +3,15 @@
 1. 添加`0.0.0.0 account.jetbrains.com`到hosts
 2. 通过[http://idea.lanyus.com/](http://idea.lanyus.com/)获取CODE
 
+Server激活
+http://intellij.mandroid.cn/
+
+
 常用插件：
 - MyBatisCodeHelper-1.4.5
+
+#### Idea中自动注释的缩进（避免添加注释自动到行首）
+打开设置界面，依次选择`Editor`-`Code Style`-`Java`，选择`Code Generation`，取消`Line comment at first column`和`Block comment at first column`的选中即可
 
 
 
