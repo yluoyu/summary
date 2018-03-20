@@ -19,6 +19,9 @@ if(count($arr) == count($arr,1)){
 三、判断数组中是否有指定值
 `in_array($borrow['p_id'],array(77,88,83,87))?1:0;`
 
+判断是否是数组
+`if(is_array($u))`
+
 #### Smart语法
 用smarty时，获取数组的长度可以有以下几种方法:
 - `{count($Arr)}`
