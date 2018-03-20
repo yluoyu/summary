@@ -41,8 +41,10 @@ jmap: Java内存映射工具(Java Memory Map)，主要用于打印指定Java进�
   通过-heap选项，打印java堆的配置情况和使用情况，还有使用的GC算法
 `例`：以二进制形式输入当前堆内存映像到文件data.hprof中
 `jmap -dump:live,format=b,file=data.hprof 1796 `
+
 #### 实例个数以及占用内存大小
 `C:\Users\Administrator>jmap -histo 4284  > d:/log.txt`
+
 ```
 num     #instances         #bytes  class name
 ----------------------------------------------
