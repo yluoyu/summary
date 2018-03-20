@@ -43,7 +43,9 @@ jmap: Java内存映射工具(Java Memory Map)，主要用于打印指定Java进�
 `jmap -dump:live,format=b,file=data.hprof 1796 `
 
 #### 实例个数以及占用内存大小
-`C:\Users\Administrator>jmap -histo 4284  > d:/log.txt`
+```
+C:\Users\Administrator>jmap -histo 4284  > d:/log.txt
+```
 
 ```
 num     #instances         #bytes  class name
@@ -63,6 +65,7 @@ bytes：占用空间大小
 class name：类名称
 ```
 #### 堆信息
+
 ```
 C:\Users\Administrator>jmap -heap 4284
 Attaching to process ID 4284, please wait...
