@@ -1,6 +1,10 @@
+参考：[Java 网络IO编程总结（BIO、NIO、AIO均含完整实例代码）](http://blog.csdn.net/anxpp/article/details/51512200)
+
 ### BIO与NIO、AIO的区别
 
- IO的方式通常分为几种，同步阻塞的BIO、同步非阻塞的NIO、异步非阻塞的AIO
+IO的方式通常分为几种，同步阻塞的BIO、同步非阻塞的NIO、异步非阻塞的AIO
+
+![](https://i.loli.net/2018/03/20/5ab1039d77c9f.png)
 
 **一、BIO**
 
