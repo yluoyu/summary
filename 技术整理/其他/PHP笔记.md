@@ -20,6 +20,9 @@ ps -ef | grep php-fpm
 
 简单方式，不用查pid
 ```
+关闭
+kill -INT `cat /usr/local/php/var/run/php-fpm.pid`
+重启
 kill -USR2 `cat /usr/local/var/run/php-fpm.pid`
 ```
 
