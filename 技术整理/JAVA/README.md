@@ -12,4 +12,16 @@ Collection集合的三种初始化方法
 - `Collections.addAll()`方法接受一个Collection对象，以及一个数组或是一个用逗号分割的列表，将其添加到Collection中
 - collection.addAll(Arrays.asList(moreInts));
 
+
+### 拼接字符
+```java
+//使用commons-lang库写法, 其实这个已经够简单了，就这个功能而言，我很喜欢，而且最最常用：
+System.out.println(StringUtils.join(list.toArray(), ","));
+
+//进入jdk8时代：
+System.out.println(list.stream().collect(Collectors.joining()));
+//jdk8时代，加个分隔符：
+System.out.println(list.stream().collect(Collectors.joining(",")));
+```
+
 ### 引用说明

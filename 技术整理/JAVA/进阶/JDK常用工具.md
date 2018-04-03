@@ -21,10 +21,15 @@ Java反编译工具，主要用于根据Java字节码文件反汇编为Java源�
 **jconsole**
 图形化用户界面的监测工具，主要用于监测并显示运行于Java平台上的应用程序的性能和资源占用等信息
 
-**jhat**
+#### **jhat**
 Java堆分析工具(Java Heap Analysis Tool)，用于分析Java堆内存中的对象信息
 命令格式：`jhat [ options ] [ pid ]`
 -flag  输出，修改，JVM命令行参数
+分析core文件
+```
+jhat heapDump
+```
+访问本地`127.0.0.1:7000`
 
 ### **jinfo**
 Java配置信息工具(`Java Configuration Information`)，用于打印指定Java进程、核心文件或远程调试服务器的配置信息。
