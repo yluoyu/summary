@@ -1,4 +1,4 @@
-
+a
 ## Java IO中的设计模式
 
 java语言 I/O库的设计中，主要使用了两个结构模式，即装饰模式和适配器模式
@@ -23,7 +23,7 @@ InputStream有七个直接的具体子类，有四个属于FilterInputStream的�
 
 所谓链接流处理器就是可以接受另一个(同种类的）流对象(就是链接流源）作为流源，并对之进行功能扩展的类。InputStream类型的链接流处理器包括以下几种，它们接受另一个InputStream对象作为流源
 
-- ByteArrayInputStream 
+- ByteArrayInputStream
 - FileInputStream
 - PipedInputStream
 - StringBufferInputStream （已逐渐废弃）
@@ -46,7 +46,7 @@ InputStream有七个直接的具体子类，有四个属于FilterInputStream的�
 
 **OutputStream 类型中的装饰模式**
 
-outputStream是一个用于输出的抽象类，它的接口、子类的等级结构、子类的功能都和InputStream有很好的对称性。在OutputStream给出的接口里，将write换成read就得到了InputStream的接口，而其具体子类则在功能上面是平行的。 
+outputStream是一个用于输出的抽象类，它的接口、子类的等级结构、子类的功能都和InputStream有很好的对称性。在OutputStream给出的接口里，将write换成read就得到了InputStream的接口，而其具体子类则在功能上面是平行的。
 
 outputStream有5个直接的具体子类，加上三个属于FilterInputStream的具体子类，一共有8个具体子类
 
@@ -70,7 +70,7 @@ outputStream有5个直接的具体子类，加上三个属于FilterInputStream�
 - StringReader：建立一个与文件有关的输入流。
 - BufferedReader 用来从硬盘将数据读入到一个内存缓冲区，并从此缓冲区提供数据
     + LineNumberReader
-- FilterReader：成为过滤输入流，它将另一个输入流作为流的来源 
+- FilterReader：成为过滤输入流，它将另一个输入流作为流的来源
     + PushbackReader，提供基于多字节的读取方法，可以读取原始数据类型的数据
 
 这里的装饰角色 由BufferedReader和FilterReader扮演。这两者有着与Reader相同的接口，它们 分别给出两个装饰角色的等级结构，第一个给出LineNumberReader作为具体装饰角色，另一个给出PushbackReader 作为具体装饰角色。
@@ -94,4 +94,3 @@ InputStream类型的原始流处理器是适配器模式的应用。
 ByteArrayInputStream是一个适配器类 。ByteArrayInputStream继承了InputStream的接口，而封装了一个byte数组。换而言之，它将一个byte数组的接口适配成了InputStream流处理器的接口
 
 在OutputStream类型中，所有的原始流处理器都是适配器类。ByteArrayOutputStream是一个适配器类。ByteArrayOutputStream继承了OutputStream类型，同事持有一个对byte数组的引用。它把一个byte数组的接口适配成OutputStream类型的接口，因此也是一个对象类型的适配器模式的应用
-
