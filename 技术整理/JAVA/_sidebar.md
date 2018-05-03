@@ -7,7 +7,7 @@
   - [集合](技术整理/JAVA/基础/集合.md)
   - [Java8流处理](技术整理/JAVA/基础/Java8流处理.md)
   - [HashMap内部实现](技术整理/JAVA/基础/HashMap内部实现.md)
-  - [Lamdba表达式](技术整理/JAVA/基础/Lamdba表达式.md)
+  - [Lamdba表达式](技术整理/JAVA/基础/Lambda表达式.md)
   - [类实例化](技术整理/JAVA/基础/类实例化.md)
   - [随机数](技术整理/JAVA/基础/随机数.md)
   - [异常梳理](技术整理/JAVA/基础/异常梳理.md)
