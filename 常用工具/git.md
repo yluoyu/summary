@@ -17,6 +17,15 @@ git pull origin master --allow-unrelated-histories
 git push -u origin master
 ```
 
+```
+// 编辑配置文件
+git config --global -e
+
+// 保存密码
+git config –global credential.helper store
+// 默认保存路径 ~/.git-credentials
+```
+
 ### 1. 概念
 
 **HEAD**
