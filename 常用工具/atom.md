@@ -17,7 +17,9 @@
 - `Control + shift + V` markdown-img-paste插件的上传图片
 - `Command + shift + K` 插入超链接
 - `Command + shift + D` 复制当前行
+- `Command + shift + up/down` 上下移动当前行
 - `Command + Delete` 删除当前行
+- [更多快捷键参考](https://www.jianshu.com/p/e33f864981bb)
 
 
 

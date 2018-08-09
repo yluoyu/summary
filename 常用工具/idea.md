@@ -4,7 +4,7 @@
 2. 通过[http://idea.lanyus.com/](http://idea.lanyus.com/)获取CODE
 
 Server激活
-http://intellij.mandroid.cn/
+http://active.chinapyg.com/
 
 
 常用插件：

@@ -48,3 +48,32 @@ Homebrew 本身不能安装软件但是homebrew-cask这个工具扩充了homebre
 
     brew cask install google-chrome
     brew cask uninstall google-chrome
+
+#### Homebrew切换源
+`Updating Homebrew....` 长时间不动解决方法有两种
+- 关闭自动更新  `export HOMEBREW_NO_AUTO_UPDATE=true`
+- 换源
+
+
+
+```
+替换brew.git:
+cd "$(brew --repo)"
+git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+
+替换homebrew-core.git:
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+重置brew.git:
+cd "$(brew --repo)"
+git remote set-url origin https://github.com/Homebrew/brew.git
+
+重置homebrew-core.git:
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+git remote set-url origin https://github.com/Homebrew/homebrew-core.git
+```
+
+#### 常见工具安装
+```
+brew install http://git.io/sshpass.rb
+```
