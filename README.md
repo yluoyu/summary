@@ -5,7 +5,7 @@
 ### 自勉
 - `勇敢走出自己的舒适区`
 - 坚持练习--[牛客网](https://www.nowcoder.com/)
-- [站长工具](http://tool.chinaz.com/)
+
 
 ### 待读书目：
 - 未来简史
@@ -33,6 +33,7 @@
 - `docsify` 快速文档
 - `prism` 代码高亮
 - `rinted` 端口转发
+- [站长工具](http://tool.chinaz.com/)
 
 ### 引用说明
 
