@@ -26,4 +26,11 @@ System.out.println(list.stream().collect(Collectors.joining()));
 System.out.println(list.stream().collect(Collectors.joining(",")));
 ```
 
+### 常见Jar库
+- commons-lang3
+- Json相关
+  - fastJson
+  - gson
+  - jackson
+
 ### 引用说明
