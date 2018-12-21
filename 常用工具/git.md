@@ -22,8 +22,12 @@ git push -u origin master
 git config --global -e
 
 // 保存密码
-git config –global credential.helper store
+方法一：git config –global credential.helper store
 // 默认保存路径 ~/.git-credentials
+
+方法二：增加远程地址的时候带上密码也是可以的。(推荐)
+http://yourname:password@git.oschina.net/name/project.git
+
 ```
 
 ### 1. 概念

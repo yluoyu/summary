@@ -14,6 +14,11 @@
 - `Collections.addAll()`方法接受一个Collection对象，以及一个数组或是一个用逗号分割的列表，将其添加到Collection中
 - `collection.addAll(Arrays.asList(moreInts))`;
 
+```
+//List<String>转List<Integer>
+List<Integer> codesInteger = codes.stream().map(Integer::parseInt).collect(Collectors.toList());
+```
+
 
 ### 拼接字符
 ```java
